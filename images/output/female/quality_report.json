@@ -1,0 +1,46 @@
+{
+  "total": 600,
+  "passed": 3,
+  "failed": 0,
+  "errors": 0,
+  "model": "google/gemini-2.0-flash-001",
+  "started_at": "2026-05-25T00:39:38.293129",
+  "last_updated": "2026-05-25T00:44:59.348444",
+  "results": {
+    "C:\\Users\\MANID\\Downloads\\flux-klein-vton\\flux-klein-vton\\output\\female\\F-HG_S3__bombay-paisley-off-white-crochet-design-a-line-dress-301061818.png": {
+      "path": "C:\\Users\\MANID\\Downloads\\flux-klein-vton\\flux-klein-vton\\output\\female\\F-HG_S3__bombay-paisley-off-white-crochet-design-a-line-dress-301061818.png",
+      "garment": "bombay-paisley-off-white-crochet-design-a-line-dress",
+      "category": "full",
+      "gender": "female",
+      "checked_at": "2026-05-25T00:39:39.648034",
+      "status": "PASS",
+      "issue": null,
+      "description": "The complete outfit is covering the model's upper and lower body naturally, and the model's face and body proportions are unchanged.",
+      "confidence": 0.9
+    },
+    "C:\\Users\\MANID\\Downloads\\flux-klein-vton\\flux-klein-vton\\output\\female\\F-HG_S3__bombay-paisley-off-white-crochet-design-cotton-blend-peplum-top-301061854.png": {
+      "path": "C:\\Users\\MANID\\Downloads\\flux-klein-vton\\flux-klein-vton\\output\\female\\F-HG_S3__bombay-paisley-off-white-crochet-design-cotton-blend-peplum-top-301061854.png",
+      "garment": "bombay-paisley-off-white-crochet-design-cotton-blend-peplum-top",
+      "category": "top",
+      "gender": "female",
+      "checked_at": "2026-05-25T00:41:31.485101",
+      "status": "PASS",
+      "issue": null,
+      "description": "The new top garment is clearly visible and properly covering the torso, appropriate bottom wear is seen, model's face, skin tone, and body proportions unchanged.",
+      "confidence": 0.9
+    },
+    "C:\\Users\\MANID\\Downloads\\flux-klein-vton\\flux-klein-vton\\output\\female\\F-HG_S3__bombay-paisley-black-printed-harem-style-cotton-blend-pants-301061812.png": {
+      "path": "C:\\Users\\MANID\\Downloads\\flux-klein-vton\\flux-klein-vton\\output\\female\\F-HG_S3__bombay-paisley-black-printed-harem-style-cotton-blend-pants-301061812.png",
+      "garment": "bombay-paisley-black-printed-harem-style-cotton-blend-pants",
+      "category": "bottom",
+      "gender": "female",
+      "checked_at": "2026-05-25T00:44:55.344031",
+      "status": "PASS",
+      "issue": null,
+      "description": "The Bombay Paisley Black Printed Harem Style Cotton Blend Pants are clearly visible at the correct length and the model's top/shirt still present.",
+      "confidence": 0.9
+    }
+  },
+  "issue_counts": {},
+  "category_fails": {}
+}

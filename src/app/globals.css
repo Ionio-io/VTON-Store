@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink:          #1C1A17;
+  --canvas:       #F8F6F2;
+  --mist:         #FFFFFF;
+  --accent:       #C9952A;
+  --accent-light: #E0AA46;
+  --stone:        #6B6460;
+  --border:       #E6DFD5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.modal-open { overflow: hidden; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #D0C8BC; }
+
+::selection { background: var(--accent); color: #fff; }
+
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.product-card {
+  opacity: 0;
+  animation: cardIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.product-card:nth-child(1)  { animation-delay: 0.03s; }
+.product-card:nth-child(2)  { animation-delay: 0.07s; }
+.product-card:nth-child(3)  { animation-delay: 0.11s; }
+.product-card:nth-child(4)  { animation-delay: 0.15s; }
+.product-card:nth-child(5)  { animation-delay: 0.19s; }
+.product-card:nth-child(6)  { animation-delay: 0.23s; }
+.product-card:nth-child(7)  { animation-delay: 0.27s; }
+.product-card:nth-child(8)  { animation-delay: 0.31s; }
+.product-card:nth-child(n+9) { animation-delay: 0.35s; }
+
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+.animate-fade-in  { animation: fadeIn  0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-scale-in { animation: scaleIn 0.2s cubic-bezier(0.22, 1, 0.36, 1) both; }

@@ -1,0 +1,10 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": ".next",
+  "env": {
+    "GARMENTS_CDN_URL": "@garments_cdn_url",
+    "VTON_CDN_URL": "@vton_cdn_url"
+  }
+}

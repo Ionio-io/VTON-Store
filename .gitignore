@@ -1,0 +1,39 @@
+# Next.js
+.next/
+out/
+build/
+
+# Local image datasets — too large for git (519 MB garments + 1.35 GB VTON outputs)
+# Upload to a CDN and set GARMENTS_CDN_URL / VTON_CDN_URL instead (see .env.example)
+images/
+
+# Dependencies
+node_modules/
+
+# Env files
+.env
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Pipeline scripts & evaluation outputs (not part of the storefront)
+*.py
+falai_eval_output/
