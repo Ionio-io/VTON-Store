@@ -24,7 +24,7 @@ const PREVIEW_SLUG: Record<Gender, string> = {
 
 function modelPreviewSrc(gender: Gender, bodyType: string, skinTone: string) {
   const gPrefix = gender === 'female' ? 'F' : 'M'
-  const filename = `${gPrefix}-${bodyType}_${skinTone}__${PREVIEW_SLUG[gender]}.png`
+  const filename = `${gPrefix}-${bodyType}_${skinTone}__${PREVIEW_SLUG[gender]}.webp`
   return getTryOnSrc(gender, filename)
 }
 
