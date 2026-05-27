@@ -75,7 +75,7 @@ export function getEffectiveModelId(prefs: UserPreferences, productGender: Gende
 }
 
 export function getTryOnFilename(modelId: string, productSlug: string): string {
-  return `${modelId}__${productSlug}.png`
+  return `${modelId}__${productSlug}.webp`
 }
 
 export function getAllProducts(): Product[] {
