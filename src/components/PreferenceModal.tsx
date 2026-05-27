@@ -7,6 +7,7 @@ import {
   UserPreferences, DEFAULT_PREFS,
 } from '@/lib/catalog'
 import { savePreferences } from '@/lib/preferences'
+import { getTryOnSrc } from '@/lib/images'
 
 interface Props {
   initial?: UserPreferences
@@ -24,7 +25,7 @@ const PREVIEW_SLUG: Record<Gender, string> = {
 function modelPreviewSrc(gender: Gender, bodyType: string, skinTone: string) {
   const gPrefix = gender === 'female' ? 'F' : 'M'
   const filename = `${gPrefix}-${bodyType}_${skinTone}__${PREVIEW_SLUG[gender]}.png`
-  return `/api/img?type=tryon&gender=${gender}&filename=${filename}`
+  return getTryOnSrc(gender, filename)
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const

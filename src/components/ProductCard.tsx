@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Product, UserPreferences, getEffectiveModelId, getTryOnFilename } from '@/lib/catalog'
+import { getGarmentSrc, getTryOnSrc } from '@/lib/images'
 
 interface Props {
   product: Product
@@ -16,10 +17,10 @@ export default function ProductCard({ product, prefs }: Props) {
   const [showTryOn, setShowTryOn]     = useState(false)
   const cardRef                       = useRef<HTMLAnchorElement>(null)
 
-  const garmentSrc       = `/api/img?type=garment&gender=${product.gender}&slug=${product.slug}&img=1.jpg`
+  const garmentSrc       = getGarmentSrc(product.gender, product.slug)
   const effectiveModelId = prefs ? getEffectiveModelId(prefs, product.gender) : null
   const tryOnSrc         = effectiveModelId
-    ? `/api/img?type=tryon&gender=${product.gender}&filename=${getTryOnFilename(effectiveModelId, product.slug)}`
+    ? getTryOnSrc(product.gender, getTryOnFilename(effectiveModelId, product.slug))
     : null
 
   // Intersection observer — load try-on only once card enters viewport

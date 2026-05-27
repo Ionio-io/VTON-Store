@@ -5,6 +5,8 @@
   "outputDirectory": ".next",
   "env": {
     "GARMENTS_CDN_URL": "https://raw.githubusercontent.com/manideep896/westside-store-assets/main/garments",
-    "VTON_CDN_URL": "https://raw.githubusercontent.com/manideep896/westside-store-assets/main/vton"
+    "VTON_CDN_URL": "https://raw.githubusercontent.com/manideep896/westside-store-assets/main/vton",
+    "NEXT_PUBLIC_GARMENTS_CDN_URL": "https://raw.githubusercontent.com/manideep896/westside-store-assets/main/garments",
+    "NEXT_PUBLIC_VTON_CDN_URL": "https://raw.githubusercontent.com/manideep896/westside-store-assets/main/vton"
   }
 }

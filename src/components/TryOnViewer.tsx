@@ -5,6 +5,7 @@ import {
   Product, UserPreferences, getEffectiveModelId, getTryOnFilename,
   MALE_BODY_TYPES, FEMALE_BODY_TYPES, SKIN_TONES,
 } from '@/lib/catalog'
+import { getGarmentSrc, getTryOnSrc } from '@/lib/images'
 
 interface Props {
   product: Product
@@ -36,12 +37,12 @@ export default function TryOnViewer({ product, prefs }: Props) {
     setView(v)
   }
 
-  const modelId  = getEffectiveModelId(prefs, product.gender)
-  const filename = getTryOnFilename(modelId, product.slug)
-  const tryOnSrc = `/api/img?type=tryon&gender=${product.gender}&filename=${filename}`
+  const modelId   = getEffectiveModelId(prefs, product.gender)
+  const filename  = getTryOnFilename(modelId, product.slug)
+  const tryOnSrc  = getTryOnSrc(product.gender, filename)
 
   const garmentImages = product.garmentImages.length > 0 ? product.garmentImages : ['1.jpg']
-  const garmentSrc    = `/api/img?type=garment&gender=${product.gender}&slug=${product.slug}&img=${garmentImages[imgIdx]}`
+  const garmentSrc    = getGarmentSrc(product.gender, product.slug, garmentImages[imgIdx])
   const activeSrc     = view === 'tryon' ? tryOnSrc : garmentSrc
 
   // Preload all 15 model variant images in background
@@ -49,7 +50,7 @@ export default function TryOnViewer({ product, prefs }: Props) {
     const allIds = getAllModelIds(product.gender)
     allIds.forEach(id => {
       const fn  = getTryOnFilename(id, product.slug)
-      const src = `/api/img?type=tryon&gender=${product.gender}&filename=${fn}`
+      const src = getTryOnSrc(product.gender, fn)
       const img = new window.Image()
       img.src = src
     })
@@ -120,7 +121,7 @@ export default function TryOnViewer({ product, prefs }: Props) {
               }`}
             >
               <img
-                src={`/api/img?type=garment&gender=${product.gender}&slug=${product.slug}&img=${img}`}
+                src={getGarmentSrc(product.gender, product.slug, img)}
                 alt="" className="w-full h-full object-cover object-top"
               />
             </button>
