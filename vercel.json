@@ -2,5 +2,9 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "env": {
+    "GARMENTS_CDN_URL": "https://raw.githubusercontent.com/manideep896/westside-store-assets/main/garments",
+    "VTON_CDN_URL": "https://raw.githubusercontent.com/manideep896/westside-store-assets/main/vton"
+  }
 }
