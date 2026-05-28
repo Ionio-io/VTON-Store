@@ -70,11 +70,10 @@ export default function StorePage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.05 }}
-            className="font-display font-semibold text-[#1C1A17] leading-[1.1] max-w-2xl"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+            className="font-display font-semibold text-[#1C1A17] leading-[1.1] whitespace-nowrap"
+            style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)' }}
           >
-            Fashion that fits{' '}
-            <em className="text-[#C9952A]">every body.</em>
+            Fashion that fits <em className="text-[#C9952A]">every body.</em>
           </motion.h1>
 
           <motion.p

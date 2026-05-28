@@ -7,7 +7,6 @@ import {
   UserPreferences, DEFAULT_PREFS,
 } from '@/lib/catalog'
 import { savePreferences } from '@/lib/preferences'
-import { getTryOnSrc } from '@/lib/images'
 
 interface Props {
   initial?: UserPreferences
@@ -16,16 +15,10 @@ interface Props {
   isFirstVisit?: boolean
 }
 
-// Representative garment slugs — full-outfit so the whole body is visible
-const PREVIEW_SLUG: Record<Gender, string> = {
-  female: 'bombay-paisley-off-white-crochet-design-a-line-dress-301061818',
-  male:   'ascot-off-white-printed-relaxed-fit-shirt-301065355',
-}
-
+// Base model images served as static assets from public/models/
 function modelPreviewSrc(gender: Gender, bodyType: string, skinTone: string) {
   const gPrefix = gender === 'female' ? 'F' : 'M'
-  const filename = `${gPrefix}-${bodyType}_${skinTone}__${PREVIEW_SLUG[gender]}.webp`
-  return getTryOnSrc(gender, filename)
+  return `/models/${gPrefix}-${bodyType}_${skinTone}.webp`
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -61,7 +54,7 @@ export default function PreferenceModal({ initial, onSave, onClose, isFirstVisit
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.97, y: 10 }}
           transition={{ duration: 0.22, ease: EASE }}
-          className="relative w-full max-w-[460px] max-h-[90vh] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden border border-[#E6DFD5]"
+          className="relative w-full max-w-[560px] max-h-[90vh] bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden border border-[#E6DFD5]"
           onClick={e => e.stopPropagation()}
         >
           {/* Gold top hairline */}
@@ -123,8 +116,8 @@ export default function PreferenceModal({ initial, onSave, onClose, isFirstVisit
               <label className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#B0A89E] mb-2.5 block">
                 Body Type
               </label>
-              {/* Horizontal scrollable row — all body types side by side */}
-              <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1" style={{ scrollbarWidth: 'none' }}>
+              {/* All body types in one row — no scroll */}
+              <div className="flex gap-2">
                 {bodyTypes.map(bt => {
                   const src = modelPreviewSrc(prefs.gender, bt.id, prefs.skinTone)
                   const isSelected = prefs.bodyType === bt.id
@@ -132,10 +125,9 @@ export default function PreferenceModal({ initial, onSave, onClose, isFirstVisit
                     <button
                       key={bt.id}
                       onClick={() => set('bodyType', bt.id as BodyType)}
-                      className={`relative flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all duration-200 text-left ${
+                      className={`relative flex-1 rounded-xl overflow-hidden border-2 transition-all duration-200 text-left ${
                         isSelected ? 'border-[#C9952A] shadow-md shadow-[#C9952A]/15' : 'border-[#E6DFD5] hover:border-[#C9952A]/40'
                       }`}
-                      style={{ width: 'calc(25% - 6px)', minWidth: 108 }}
                     >
                       {/* Model image — 2:3 portrait */}
                       <div className="bg-[#F0ECE6]" style={{ aspectRatio: '2/3' }}>
